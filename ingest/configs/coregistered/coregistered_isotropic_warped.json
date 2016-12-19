@@ -1,0 +1,48 @@
+{
+  "schema": {
+      "name": "boss-v0.1-schema",
+      "validator": "BossValidatorV01"
+  },
+  "client": {
+    "backend": {
+      "name": "boss",
+      "class": "BossBackend",
+      "host": "api.theboss.io",
+      "protocol": "https"
+    },
+    "path_processor": {
+      "class": "ingest.plugins.coregistered_volume.AiPathProcessor",
+      "params": {
+        "root_dir": "/data/nc-em/iarpaMicrons/coRegistration/iarpa_export/uploadBOSS/tiled_uploads/coregistered_dataset/neuroanatomical_isotropic_warped/0/",
+        "filetype": "png"
+      }
+    },
+    "tile_processor": {
+      "class": "ingest.plugins.coregistered_volume.AiTileProcessor",
+      "params": {
+        "datatype": "uint8",
+        "filetype": "png"
+      }
+    }
+  },
+  "database": {
+    "collection": "BCMID_8973_AIBSID_243774",
+    "experiment": "coregistered_dataset",
+    "channel": "neuroanatomical_isotropic_warped"
+  },
+  "ingest_job": {
+    "resolution": 0,
+    "extent": {
+      "x": [0, 3072],
+      "y": [0, 3072],
+      "z": [1, 1988],  
+      "t": [0, 1]
+    },
+    "tile_size": {
+      "x": 1024,
+      "y": 1024,
+      "z": 1,
+      "t": 1
+    }
+  }
+}
