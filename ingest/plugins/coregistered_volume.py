@@ -6,8 +6,8 @@ from PIL import Image
 import numpy as np
 import os
 
-from ingest.plugins.plugins.path import PathProcessor
-from ingest.plugins.plugins.tile import TileProcessor
+from .path import PathProcessor
+from .tile import TileProcessor
 
 
 class AiPathProcessor(PathProcessor):

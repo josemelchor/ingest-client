@@ -1,5 +1,5 @@
-# Allen Institute's plugin to upload neuroanatomical data
-# This plugin should work with the config files in configs/neuroanatomical/ folder
+# Allen Institute's plugin to upload 2Photon Anatomical data
+# This plugin should work with the config files in configs/2photon/ folder
 from __future__ import absolute_import
 # import six
 # from PIL import Image
@@ -16,7 +16,7 @@ class AiPathProcessor(PathProcessor):
 
     def process(self, x_index, y_index, z_index, t_index=None):
 
-        filename = "{}/{}/{}.{}".format(z_index + 2266, y_index, x_index, self.parameters["filetype"])
+        filename = "{}{}.{}".format("2Photon_anatomical_vasculature_z", ("%04d" % z_index), self.parameters["filetype"])
 
         return os.path.join(self.parameters["root_dir"], filename)
 
