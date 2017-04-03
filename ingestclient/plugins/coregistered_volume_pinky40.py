@@ -26,7 +26,7 @@ class AiPathProcessor(PathProcessor):
 
     def process(self, x_index, y_index, z_index, t_index=None):
 
-        filename = "{}/{}/{}.{}".format(("%04d" % z_index), y_index, x_index, self.parameters["filetype"])
+        filename = "{}/{}/{}.{}".format(z_index - 1, y_index, x_index, self.parameters["filetype"]) # using 'z_index - 1' because Nuno created the dataset starting at 0 
 
         return os.path.join(self.parameters["root_dir"], filename)
 
@@ -52,5 +52,5 @@ class AiTileProcessor(TileProcessor):
         self.parameters = parameters
 
     def process(self, file_path, x_index, y_index, z_index, t_index=0):
-        
+
         return open(file_path, 'rb')
